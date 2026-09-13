@@ -16,8 +16,7 @@
       <strong><%= book.title %></strong>
       <%= link_to "Show", book %>
       <%= link_to "Edit", edit_book_path(book) %>
-      <%= link_to "Delete", book,
-            data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this book?" } %>
+      <%= link_to "Delete", confirm_delete_book_path(book) %>
     </div>
   <% end %>
 <% end %>
