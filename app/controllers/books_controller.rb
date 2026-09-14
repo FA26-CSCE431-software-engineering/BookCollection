@@ -58,10 +58,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to books_path, notice: "Book was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
-    end
+    redirect_to books_path, notice: "Book was successfully deleted."
   end
 
   private
