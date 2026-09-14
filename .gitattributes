@@ -7,3 +7,17 @@ db/schema.rb linguist-generated
 vendor/* linguist-vendored
 config/credentials/*.yml.enc diff=rails_credentials
 config/credentials.yml.enc diff=rails_credentials
+
+cat > .gitattributes <<'EOF'
+* text=auto eol=lf
+
+*.rb    text eol=lf
+*.rake  text eol=lf
+*.ru    text eol=lf
+*.yml   text eol=lf
+*.erb   text eol=lf
+Gemfile     text eol=lf
+Rakefile    text eol=lf
+*.sh        text eol=lf
+bin/*       text eol=lf
+EOF
