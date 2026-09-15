@@ -25,12 +25,12 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to books_path, notice: "Book was successfully created." }
+        format.html { redirect_to books_path, notice: "Book was successfully created.", status: :see_other }
         format.json { render :show, status: :created, location: @book }
       else
         flash.now[:alert] = "Book could not be created: #{@book.errors.full_messages.join(', ')}"
         format.html { render :new, status: :unprocessable_content }
-        format.json { render json: books_path.errors, status: :unprocessable_content }
+        format.json { render json: @book.errors, status: :unprocessable_content }
       end
     end
   end
@@ -44,24 +44,16 @@ class BooksController < ApplicationController
       else
         flash.now[:alert] = "Book could not be updated: #{@book.errors.full_messages.join(', ')}"
         format.html { render :edit, status: :unprocessable_content }
-        format.json { render json: books_path.errors, status: :unprocessable_content }
+        format.json { render json: @book.errors, status: :unprocessable_content }
       end
     end
-  end
-
-  # GET /books/:id/confirm_delete
-  def confirm_delete
-    @book = Book.find(params[:id])
   end
 
   # DELETE /books/1 or /books/1.json
   def destroy
     @book.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to books_path, notice: "Book was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
-    end
+    redirect_to books_path, notice: "Book was successfully deleted.", status: :see_other
   end
 
   private

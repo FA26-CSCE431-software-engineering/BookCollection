@@ -17,7 +17,7 @@
       Published: <%= book.published_date %><br>
       <%= link_to "Show", book %>
       <%= link_to "Edit", edit_book_path(book) %>
-      <%= link_to "Delete", confirm_delete_book_path(book) %>
+      <%= button_to "Delete", book,method: :delete, data: { turbo_confirm: "Are you sure?" } %>
     </div>
   <% end %>
 <% end %>
