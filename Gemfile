@@ -67,3 +67,11 @@ gem "rspec-rails", "~> 8.0", groups: [:development, :test]
 
 gem 'rexml'
 gem 'rubocop'
+
+# Google Auth Gems
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+
+gem 'dotenv-rails'

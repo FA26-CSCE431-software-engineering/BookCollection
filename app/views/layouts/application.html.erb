@@ -29,6 +29,11 @@
     <% if alert %>
       <p style="color: red;"><%= alert %></p>
     <% end %>
+    <% if flash.any? %>
+      <% flash.each do |key, value| %>
+        <section class="flash flash_<%= key %>"><%= value %></section>
+      <% end %>
+    <% end %>
 
     <%= yield %>
   </body>
